@@ -4,37 +4,47 @@
   <meta charset="utf-8" />
   <title>Unite Us Widget</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
+    /* Reset page margins */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
     }
 
-    /* Container that Unite Us will use */
+    /* Outer container for the Unite Us widget */
     #uu-container {
       width: 100%;
-      max-width: 900px;   /* you can bump this up if you like */
+      max-width: 1100px;   /* Increase width here if needed */
       margin: 0 auto;
-      min-height: 1000px;
+      padding: 10px;
+      min-height: 1400px;
+      box-sizing: border-box;
     }
 
-    /* The widget injects its own <iframe>. Make it fill the width. */
-    iframe {
+    /* Force the Unite Us injected iframe to expand full width */
+    #uu-container iframe {
       width: 100% !important;
-      min-height: 1000px !important;
-      border: 0;
+      max-width: 100% !important;
+      min-height: 1400px !important;
+      border: none !important;
+      display: block !important;
     }
   </style>
 </head>
+
 <body>
   <div id="uu-container"></div>
 
   <script type="text/javascript" src="https://widgets.uniteus.io/public/widget.js"></script>
   <script type="text/javascript">
     var token = 'RCnUQQCMoYNQGnuts4ur3Sz1Mw3mnFtODM4vnVov';
-    // If the widget supports a container id, this makes it explicit:
-    // window.Uniteus.assistanceRequestWidget(token, 'uu-container');
+
+    /* If the widget supports explicit container targeting, this would work:
+       window.Uniteus.assistanceRequestWidget(token, 'uu-container');
+       But since the default worked, keep it simple: */
     window.Uniteus.assistanceRequestWidget(token);
   </script>
 </body>
